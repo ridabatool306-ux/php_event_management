@@ -43,12 +43,12 @@ if(isset($_POST['sub'])){
           $mail->isSMTP();
           $mail->Host='smtp.gmail.com';
           $mail->SMTPAuth=true;
-          $mail->Username='ridabatool306@gmail.com';
+          $mail->Username='admin@gmail.com';
           $mail->Password='hxzzrjucljdiccnh';
           $mail->SMTPSecure='ssl';
           $mail->Port=465;
       
-          $mail->setFrom('ridabatool306@gmail.com');
+          $mail->setFrom('admin@gmail.com');
       
           $mail->addAddress($bookingemail);
       
