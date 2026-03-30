@@ -1,0 +1,79 @@
+<?php
+   include('./connection.php');
+         $id=$_GET['nid'];
+         $sql="SELECT * FROM `news` WHERE `news_id`='$id'";
+         $run=mysqli_query($conn,$sql);
+         $fet=mysqli_fetch_assoc($run);
+         $pic=unserialize($fet['newspic']);
+         
+    include('./include/header.php');
+         ?>
+
+<div id="page-banner-area" class="page-banner-area" style="background-image:url(images/hero_area/banner_bg.jpg)">
+         <!-- Subpage title start -->
+         <div class="page-banner-title">
+            <div class="text-center">
+               <h2>News Details</h2>
+               <ol class="breadcrumb">
+                  <li>
+                     <a href="#">Exibit /</a>
+                  </li>
+                  <li>
+                     News Details
+                  </li>
+               </ol>
+            </div>
+         </div><!-- Subpage title end -->
+      </div>
+
+      <section id="main-container" class="main-container">
+         <div class="container">
+            <div class="row">
+         
+               <div class="col-lg-8 col-md-8 col-sm-12 mx-auto">
+                  <div class="post">
+                     <div class="post-media post-image">
+                        <a href="#"> <img src="../admin/img/<?php echo $pic[0]?>" alt="" height=190px; width=490px;></a>
+                     </div>
+
+                     <div class="post-body">
+                        <div class="post-meta">
+                           <span class="post-author">
+												<a href="#"><?php echo $fet['newstitle']?></a>
+											</span>
+
+                           <div class="post-meta-date">
+                              <span class="day"></span>
+                              
+                           </div>
+                        </div>
+                        <!-- <div class="entry-header">
+                           <h2 class="entry-title">
+                              <a href=""></a>
+                           </h2>
+                        </div>header end -->
+
+                        <div class="entry-content">
+                           <p><?php echo $fet['newsdescription']?></p>
+                        </div>
+
+                        <!-- <div class="post-footer">
+                           <a href="news-single.html" class="btn-link">Read More <i class="icon icon-arrow-right"></i></a>
+                        </div> -->
+
+                     </div><!-- post-body end -->
+                  </div><!-- 1st post end -->
+                 
+
+                  
+
+               </div><!-- Content Col end -->
+       
+            </div><!-- Main row end -->
+
+         </div><!-- Container end -->
+		</section><!-- Main container end -->
+
+<?php
+include('./include/footer.php');
+?>
