@@ -4,7 +4,7 @@ include('./include/sidebar.php');
 include('./connection.php');
 
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+// use PHPMailer\PHPMailer\Exception;
 
 require 'phpmailer/src/Exception.php';
 require 'phpmailer/src/PHPMailer.php';
@@ -39,12 +39,12 @@ $msg2= "";
           $mail->isSMTP();
           $mail->Host='smtp.gmail.com';
           $mail->SMTPAuth=true;
-          $mail->Username='admin@gmail.com';
-          $mail->Password='hxzzrjucljdiccnh';
+          $mail->Username=$email_user;
+          $mail->Password=$email_pass;
           $mail->SMTPSecure='ssl';
           $mail->Port=465;
       
-          $mail->setFrom('admin@gmail.com');
+          $mail->setFrom($email_user);
       
           $mail->addAddress($bookingemail);
       

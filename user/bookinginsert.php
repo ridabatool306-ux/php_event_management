@@ -7,7 +7,7 @@ include('./include/header.php');
 // }
 
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+// use PHPMailer\PHPMailer\Exception;
 
 require 'phpmailer/src/Exception.php';
 require 'phpmailer/src/PHPMailer.php';
@@ -43,12 +43,12 @@ if(isset($_POST['sub'])){
           $mail->isSMTP();
           $mail->Host='smtp.gmail.com';
           $mail->SMTPAuth=true;
-          $mail->Username='admin@gmail.com';
-          $mail->Password='hxzzrjucljdiccnh';
+          $mail->Username=$email_user;
+          $mail->Password=$email_pass;
           $mail->SMTPSecure='ssl';
           $mail->Port=465;
       
-          $mail->setFrom('admin@gmail.com');
+          $mail->setFrom($email_user);
       
           $mail->addAddress($bookingemail);
       
